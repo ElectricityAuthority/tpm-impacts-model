@@ -1,0 +1,607 @@
+---
+title: "TPM impact model documentation"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: yes
+    self_contained: yes
+    highlight: haddock
+    fig_caption: true
+    css: ../resources/css/styles.css
+---
+
+```{r setup, echo=FALSE, message=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = TRUE, message=FALSE)
+library(dplyr)
+library(readr)
+library(kableExtra)
+library(knitr)
+```
+
+<img src="../resources/img/logo.png" style="position:absolute; top:20px; right:0; width:25%; padding-right: 40px;" />
+
+# Update: March 2020 
+
+## Consideration of submissions and adjustments to 2019 proposal impacts analysis
+Subsequent to the initial modelling for the 2019 proposal impacts analysis, the Authority analysed stakeholder TPM submissions, including submissions on the Authority’s impact modelling. Data and calculation issues were identified through the consultation process. As a result, the Authority made some minor adjustments to the model logic which are now reflected in the model with flags that can be turned on and off. 
+
+It is important to note that the impacts modelling of the Authority’s proposal consists of two main charges – the benefit-based charge and the residual charge – and a cap. The modelling of the residual charge and the cap is indicative, in that if the Authority confirms its proposal, Transpower will be required to develop the detailed methodology and the actual charges may differ from the Authority’s modelling. However, the portion each customer pays for the initial investments included in the benefit-based charge, is intended to be included as a schedule (*Schedule 1*) of the proposed revised guidelines. 
+
+The Authority has considered the process it should follow in determining when to adjust, and if adjustments are made, what process should be followed. The Authority has considered whether customers are materially adversely affected by adjustments, and if so, whether the Authority should consult again, to allow affected parties to provide the Authority with further information, which may be useful for decision making. 
+
+This documentation provides the following to assist decision makers to evaluate the adjustment process.
+
+-	A description of the process for considering and adjusting the impacts analysis as presented with the 2019 issues paper proposal. 
+-	Details of each adjustment.
+
+The comparison files and code were also updated to reflect these changes (see the **Comparisons** section below for more information).
+
+## Process for considering adjustments
+
+The following is a description of the process for considering and adjusting the impacts analysis as presented with the 2019 issues paper proposal - following submissions.
+
+- We conducted an internal investigation of data issues raised in submissions with assistance from inhouse experts. 
+- We are not aware of any further anomalies other than those identified through submissions or by the Authority. 
+- We made the adjustments in Excel, so that each separate adjustment could be turned off and on separately or together. 
+- We undertook a materiality calculation for each adjustment made to make a draft decision/recommendation as to whether any customer was materially adversely affected by the adjustments.
+- We replicated the Excel-based adjustments in code (R) and published the code. 
+
+## Adjustments (in R)
+
+16 flags were added to the model and can be found in the `rprogs/model_adjustments_March2020.R` program (adjustment 13 doesn’t require any changes). ***Each can be switched on/off (i.e. set to TRUE/FALSE) from here.*** The following is an itemised list of the adjustments made, including the category, how the issue was detected and the changes to the R code.
+
+#### Adjustment 1
+
+> Change customer name from "Tuaropaki Power" to "Tuaropaki (Mercury)"
+
+##### Adjustment category
+Name change
+
+##### How was this detected?
+Internal reconciliation of Transpower customer list with Transpower's disclosures. 
+
+##### Changes in R code
+- modified `customer_poc_network`, `vSPD_node_customer`, `customer_type` and `current_charges` in `read_inputs.R` to change customer name from Tuaropaki Power to Tuaropaki (Mercury)
+
+#### Adjustment 2
+
+> Change customer name from "Nova" to "KCE (Mangahao)" for generation at POC: MHO0331 MH00
+
+##### Adjustment category
+Name change
+
+##### How was this detected?
+KCE submission.
+
+##### Changes in R code
+- modified `vSPD_node_customer` and `customer_type` in `read_inputs.R` to update customer name at MHO0331 from Nova to KCE (Mangahao)
+
+#### Adjustment 3
+
+> Recognise Aniwhenua as distributed generation (POC: MAT1101 ANI0) and net against EDG0331 to reduce Horizon Energy's benefit-based charge
+
+##### Adjustment category
+Matahina anomaly
+
+##### How was this detected?
+Southern Generation’s submission and Horizon Energy’s submission provided evidence that Aniwhenua should be defined as distributed generation under the Authority’s draft netting business rules because there was a direct connection between the generator and Horizon’s distribution network and a direct connection to Transpower’s network. The dual connection means that Aniwhenua is partially embedded, i.e., partially embedded and partially grid connected because of its dual connection. See draft netting rules as provided in the 2019 consultation paper.
+
+##### Changes in R code
+- modified `final_net_vSPD_adjust` in `vSPD_netting_module.R` to net MAT1101 ANI0 against EDG0331 (this also required the creation of a new function `net_2gen_against_1load` inside the same script)
+
+#### Adjustment 4
+
+> Re-allocate load to Horizon Energy from Southern Generation (at MAT1101)
+
+##### Adjustment category
+Matahina anomaly
+
+##### How was this detected?
+The Authority was alerted to this through the questions and answers process it ran, a meeting with Pioneer (owner of Southern Generation) and again through Pioneer’s submission.
+
+##### Changes in R code
+- modified `customer_poc_network` and `vSPD_node_customer` in `read_inputs.R` to re-allocate load to Horizon Energy from Southern Generation (at MAT1101)
+
+#### Adjustment 5
+
+> Adjust load for Buller to reflect permanent changes in demand and double counting (adjust vSPD and residual load)
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+Buller advised the Authority in their submission on the 2016 proposal of double counting and a permanent change in demand due to plant closure in 2015 (customer: Holcim). The Authority adjusted their charges for this in the 2016 modelling in the supplementary consultation paper. Buller advised the Authority again of its adjusted load in its 2019 submission. Buller advised in their 2019 submission: “The double counting anomaly occurs because of the network configuration which exists at the BEL-owned Robertson St Substation where the ORO1101 & ORO1102 are operated in parallel. At any point in time the load can be supplied from either GXP as a result of a planned or unplanned outage of Transpower or BEL assets.” For permanent changes in demand, load at POC WPT0111 was zeroed out for both the residual and benefit-based charge.
+
+##### Changes in R code
+- modified `demand_raw` in `read_inputs.R` to remove load volumes for WPT0111
+- modified `demand_AMD` in `calculate_residual_options.R` to group ORO1101 and ORO1102 together and recalculate AMD
+- modified `node_benefits` in `calculate_vSPD_benefits.R` to set demand benefit for WPT0111 to zero
+
+#### Adjustment 6
+
+> Adjust load for Westpower to reflect permanent changes in demand and double counting (adjust vSPD and Residual load)
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+Westpower advised the Authority in their submission on the 2016 proposal of double counting and a permanent change in demand due to plant closures (Solid Energy Spring Creek Mine, Oceana Gold, Pike river and Grey river Gold dredge). Double counting was adjusted for at POCs RFN1101 and RFN1102.
+
+##### Changes in R code
+- modified `demand_AMD` in `calculate_residual_options.R` to group RFN POCs together and recalculate AMD (for latest 2 years) for Westpower
+- modified `mean_demand_AMD` in `calculate_residual_options.R` to change the denominator for Westpower POCs to 2 for calculating AMD
+- modified `node_benefits` in `calculate_vSPD_benefits.R` to both set demand benefits for DOB0331 and RFN1101 to zero for 2014-15 and set demand benefits for HKK0661 to zero for 2015-16
+
+#### Adjustment 7
+
+> Revise Revenue for RCP3 based on final Commerce Commission decision - total proposed revenue to reduce from $848m to $798.8m
+
+##### Adjustment category
+Transpower revenue reduction
+
+##### How was this detected?
+The Authority. The Commerce Commission did not publish its final decision on Transpower's revenue for 2021/22 until after the 2019 consultation paper was released. Transpower's regulated revenue was reduced from their draft decision of $848m, down to $798.8m. This reduced both the residual and benefit-based charge revenue pools.
+
+##### Changes in R code
+- modified `transpower_revenue_forecast` parameter in `main.R` to update the total revenue forecast from $848 million to $798.8 million 
+- modified `total_revenue_forecast` in `calculate_revenue.R` to update connection charge based on new total revenue and to update HVDC + interconnection charge (for status quo)
+- modified `revenue_forecast_raw` in `current_charges.R` to udpate the connection charge in the revenue forecast dataframe based on the adjusted connection charge calculated previously
+- modified `benefit_revenue_forecast` in `read_inputs.R` to adjust benefit revenues down based on new total revenue forecast
+- modified `revenue_forecast_raw` in `read_inputs.R` to adjust total benefit revenue down based on new total revenue forecast
+
+#### Adjustment 8
+
+> Change to ensure that status quo is net of LCE, for like-for-like comparison with proposal. Adjust status quo for cap
+
+##### Adjustment category
+Loss and constraint excess adjustment
+
+##### How was this detected?
+We were informed by Contact Energy that the Authority did not compare the right numbers when comparing before/after cap, in that the proposal was net of LCE while the status quo charge was not.
+
+##### Changes in R code
+- modified `HVDC_interconnection_charge` in `calculate_cap.R` to ensure that status quo is net of LCE
+
+#### Adjustment 9
+
+> Adjust Eastland Network AMDs (WRA0111, GIS0501 and TUI0111) - set to zero
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+The Authority. Transpower's lines sales to distributor in 2015 caused load to be shifted from one POC(s) to another. Given the residual charge is based on 4 annual peaks by POC, on the year of the sale (2014-15), the calculation picks up peaks before shift and peaks after shift, causing a double up of load. The treatment was to zero out AMD at WRA0111, GIS0501 and TUI0111 for the 2014-15 assessment year. 
+
+##### Changes in R code
+- modified `demand_AMD` in `calculate_residual_options.R` to set Eastland Network AMDs (WRA0111, GIS0501 and TUI0111) to 0
+
+#### Adjustment 10
+
+> Adjust Northpower AMD (KEN0331) - set to zero
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+The Authority. Asset sales during assessment period causes double counting. Similar to the Eastland Network adjustment above. The treatment was to remove AMD for KEN0331_NPOW for the 2014-15 year (the AMDs at other POC represents Northpower full load).
+
+##### Changes in R code
+- modified `demand_AMD` in `calculate_residual_options.R` to set Northpower AMD (KEN0331) to 0
+
+#### Adjustment 11
+
+> Adjustment for Cobb generation - set generation benefits for COB0661 COB0 to zero
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+The Authority. Asset sale caused Cobb to become distributed generation. A Transpower asset sale caused the Cobb station to become embedded. Cobb is no longer a direct connect generator and therefore should not receive vSPD charges for generation. The treatment was to zero out vSPD generation benefits for POC: COB0661 COB0. ie, No vSPD benefits for COB0661 COB0. Also, the Authority netted generation at COB0661 COB0 against load on Network Tasman load (POC: STK) for the 2014-15 period, thereby reducing Network Tasman charges. No adjustment is required for the residual because generation does not incur residual charges. 
+
+##### Changes in R code
+- modified `node_benefits` in `calculate_vSPD_benefits.R` to set generation benefits for COB0661 COB0 to zero
+
+#### Adjustment 12
+
+> Adjust Orion AMDs for 2014-15 (ADD0111, ADD0661, MLN0661 and MLN0664)
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+Orion submission. Transpower's lines sales to Orion in 2015 caused load to be shifted from one POC(s) to another. Given the residual charge is based on 4 annual peaks by POC, on the year of the sale (2014-15) the calculation picks up peaks before shift and peaks after shift, causing a double up of load. The treatment was to remove AMDs at 4 POCs for the 2014-15 year: ADD0111_ORON, ADD0661_ORON, MLN0661_ORON, and MLN0664_ORON. The AMD at ISL0661_ORON already reflects the load at these POCs removed POCs. 
+
+##### Changes in R code
+- modified `demand_AMD` in `calculate_residual_options.R` to set Orion AMDs for 2014-15 (ADD0111, ADD0661, MLN0661 and MLN0664) to 0
+
+#### Adjustment 13
+
+No change
+
+#### Adjustment 14
+
+> Southdown generator closure - SWN2201 (remove generation benefit)
+
+##### Adjustment category
+Generator closure adjustment
+
+##### How was this detected?
+The Authority.
+
+##### Changes in R code
+- modified `node_benefits` in `calculate_vSPD_benefits.R` to remove generation benefit for SWN2201 SWN0 and SWN2201 SWN5
+
+#### Adjustment 15
+
+> Contact generator closure - OTA2202 (remove generation benefit)
+
+##### Adjustment category
+Generator closure adjustment
+
+##### How was this detected?
+Contact submission.
+
+##### Changes in R code
+- modified `node_benefits` in `calculate_vSPD_benefits.R` to remove generation benefit for OTA2202 OTC0
+
+#### Adjustment 16
+
+> Replace blank load cells in Ngawha adjustment
+
+##### Adjustment category
+Ngawha adjustment
+
+##### How was this detected?
+The Authority. A small adjustment to volumes to replace some blank load cells.
+
+##### Changes in R code
+- modified `nga_wha_adjustment` in `nga_wha_module.R` to add previously missing load and generation to KOE1101. This also required adding a new csv called `…/inputs/nga_wha/Oct2018_load_and_gen_complete.csv`
+
+#### Adjustment 17
+
+> Net Cobb generation against Network Tasman POC: STK0331
+
+##### Adjustment category
+Double counting and permanent changes in demand
+
+##### How was this detected?
+The Authority. The Authority netted generation at COB0661 COB0 against load on Network Tasman load (POC: STK) for the 2014-15 period, thereby reducing Network Tasman benefit-based charges (see also: adjustment 11).
+
+##### Changes in R code
+- modified `final_net_vSPD_adjust` in `vSPD_netting_module.R` to net Cobb generation against Network Tasman POC: STK0331
+
+# Background
+
+This page documents the process for running the TPM impact model using `R`. The model has CSV inputs as well as programs that should be run in a certain order (this can be done via the main program (`rprogs/main.R`)).
+
+There are also programs for creating a results HTML and for validating/comparing calculated results with those in the spreadsheet versions of the model.
+
+# Inputs
+
+All input CSVs are in the `inputs` folder.
+
+## ACOT
+
+#### ACOT_payments.csv
+
+ACOT payments by customer for the year to 31 March 2017. 
+
+## cap
+
+#### distributor_charges.csv
+
+Line charges by distributor.
+
+## charges
+
+#### current_charges.csv
+
+Current (2019/20) disclosed connection, interconnection and HVDC charges by customer.
+
+#### LCE_allocation.csv
+
+LCE allocation by charge type.
+
+## demand
+
+#### GR010_demand_MW_XXXX_XXXX.zip files
+
+Compressed versions of the GR010 demand files (CSVs) for the 2014/15, 2015/16, 2016/17 and 2017/18 years. *These were compressed into zip files because the CSV files were too large to upload to the git repository.*
+
+## generation
+
+#### GR010_generation_MW_XXXX_XXXX.csv files
+
+The GR010 generation files for the 2014/15, 2015/16, 2016/17 and 2017/18 years.
+
+## mapping
+
+#### customer_poc_network_map.csv
+
+A mapping of POC to network, Transpower customer and region.
+  
+#### customer_type_map.csv
+
+A mapping of Transpower customer to customer type (distributor, generator or industrial).
+
+#### investment_node_benefits_map.csv
+
+A mapping of different versions of investment names.
+
+#### vSPD_node_to_customer_map.csv
+
+A mapping between vSPD node, POC and Transpower customer.
+
+## nga_wha
+
+The inputs in this folder feed in to the calculation of the Nga Wha adjustment. They are the half-hourly vSPD results for the KOE1101 POC for both the October and December 2018 runs. They are broken down in to variable and fixed VPO for the HVDC, NIGUP and Wairakei investments. 
+
+The file, `Oct2018_load_and_gen_complete.csv`, was included following the March 2020 updates (adjustment 16: replace blank load cells in Ngawha adjustment). 
+
+## node_benefits
+
+Annual vSPD benefit outputs for each investment by vSPD node (to be used as inputs in the impact model).
+
+## residential
+
+#### residential_energy_use.csv
+
+Average annual residential energy use by distributor in kWh (source: MBIE).
+
+## revenue
+
+#### benefit_revenue_forecast.csv 
+
+Forecast revenue ($ million) for each investment by year (currently for the 2020/21 and 2021/22 years).
+
+#### total_revenue_forecast.csv
+
+Total revenue forecast ($ million) by revenue type and scenario (proposed vs. status quo).
+
+# Programs
+
+All relevant programs are in the `rprogs` folder.
+
+## main.R
+
+- load libraries
+- set parameters
+  - Evaluation year (`eval_year`). This only affects the `benefit_revenue_forecast.csv` input at the moment (default: 2021/22).
+  - Total Transpower revenue forecast (`transpower_revenue_forecast`; default: 848 ($ million) or 798.8 ($ million) when adjustment 7 is set to `TRUE`).
+  - Assumed cost of energy (`energy_cost_estimated`; default: 75 ($/MWh))
+  - Nga Wha adjustment flag (`nga_wha_adjust_flag`). Whether or not to make the Nga Wha adjustment (default: `TRUE`).
+  - Demand and generation year vectors (`demand_years` and `generation_years`). For reading in GR010 files.
+  - Growth and growth years (for demand and generation forecast). Default growth: 0.01 (i.e. 1% pa). Default growth years: 6.
+  - Generate report (`generate_report`). Whether or not to generate the HTML report at the end of the script. Default: `TRUE`
+  - All flags (`all_flags`). Set flags (to "all `TRUE`" or "all `FALSE`" using the all_flags parameter). When `NULL`, the flags from `rprogs/model_adjustments_March2020.R` are used. DEfault: `NULL`
+- run all programs in order
+  - Setup
+  - Read input data
+  - Calculate revenue
+  - Calculate current charges
+  - Calculate mean demand
+  - Calculate mean generation
+  - Calculate residual options
+  - Calculate vSPD benefits
+  - Calculate indicative charges
+  - Calculate ACOT impacts
+  - Calculate capped proposal
+  - Calculate residential impacts
+  - Create results report
+
+## read_inputs.R
+
+Program for reading in all inputs:
+
+- POC/Network/Customer map
+- vSPD node to customer map
+- Customer/type map
+- Investment revenue to node benefit names names map
+- Current charges (2021/22)
+- Investment benefit revenue
+- Total revenue forecast
+- GR010 demand
+- GR010 generation
+- Node benefits
+- Distributor charges
+- ACOT payments
+- Residential energy use
+
+#### Dependencies
+
+- `main.R` for libraries and relative paths.
+
+## calculate_revenue.R
+
+Uses the revenue forecast input (`total_revenue_forecast.csv`) to calculate a residual amount based on the total Transpower revenue forecast (set as a parameter, `transpower_revenue_forecast`, in `main.R`) and the other revenue types by status quo/proposed scenarios.
+
+#### Dependencies
+
+- `main.R` for input parameters.
+- `read_inputs.R` for reading in input files.
+
+## current_charges.R
+
+Derives an adjusted total revenue amount (i.e. Transpower revenue forecast minus LCE minus prudential/notional charges). Then rates up 2019/20 charges by charge type to 2021/22 levels (`adjusted_charges`).
+
+#### Dependencies
+
+- `main.R` for input parameters.
+- `calculate_revenue.R` for calculating the total revenue forecast.
+- `read_inputs.R` for reading in input files.
+
+## calculate_mean_demand.R
+
+Uses GR010 demand inputs to calculate mean demand (load) by POC (`demand_mean_POC`) and customer (`demand_mean`). Also, forecasts mean demand using growth parameters (`demand_mean_forecast`). 
+
+#### Dependencies
+
+- `main.R` for forecast growth parameters.
+- `read_inputs.R` for reading in input files.
+
+## calculate_mean_generation.R
+
+Uses GR010 generation inputs to calculate mean generation by POC (`generation_mean_POC`) and customer (`generation_mean`). Also, forecasts mean net generation using growth parameters (`generation_mean_net_forecast`). 
+
+#### Dependencies
+
+- `main.R` for forecast growth parameters.
+- `read_inputs.R` for reading in input files.
+
+## calculate_residual_options.R
+
+Uses mean demand as an input to calculate anytime max demand (AMD) to derive a share of the residual for each customer. The proportions are then multiplied by the total residual amount ($ million) to create the final residual charges file by customer (`residual_final`).
+
+#### Dependencies
+
+- `calculate_revenue.R` for total residual amount.
+- `calculate_mean_demand.R` for mean demand inputs.
+
+## calculate_vSPD_benefits.R
+
+Uses the node benefits input to calculate demand and generation benefits by customer. Both the Ngawha and netting modules are read in via this program. The process is as follows:
+
+1. Calculate initial demand and generation benefits using `node_benefits_raw` input.
+2. Calculate the multi customer adjustment (i.e. for where there are multiple customers with the same POC). Mean demand and generation are used to allocate benefits. ***Note: a small amount of manual overriding was required for some allocation proportions to match with figures from the Excel version***.
+3. Calculate the Ngawha adjustment (`nga_wha_module.R` read in here) if `nga_wha_adjust_flag` is `TRUE`.
+4. Calculate final traditional vSPD benefit table (`vSPD_traditional`). 
+5. Calculate the netting adjustment (`vSPD_netting_module.R` read in here) to derive the final net vSPD benefit table (`vSPD_net`). Calculate mean benefit amounts and proportions by customer (`vSPD_net_mean` and `vSPD_net_pct`).
+6. Map total investment revenue to each customer to calculate total benefit charges by customer (`benefit_charges_final`).
+
+#### Dependencies
+
+- `read_inputs.R` for reading in input files.
+- `calculate_mean_demand.R` for mean demand inputs.
+- `calculate_mean_generation.R` for mean generation inputs.
+- `nga_wha_module.R` - has a function, `nga_wha_adjustment()` for overriding December 2018 vSPD run volumes for KOE1101 with those from October 2018 and then recalculating benefits.
+- `vSPD_netting_module.R` - generic and non-generic functions used for replicating the netting decisions used for the 2019 proposal.
+
+## indicative_charges.R
+
+Calculate indicative charges (status quo vs. proposed) for all customers (`indicative_charges`).  
+
+#### Dependencies
+
+- `adjusted_charges` for status quo charges.
+- `benefit_charges_final` for proposed benefit charges.
+- `residual_final` for proposed residual charges.
+
+## calculate_ACOT_payments.R
+
+Calculate ACOT $/MWh for each distributor using ACOT payments input (`ACOT_payments`) and mean demand forecast (`demand_mean_forecast`).
+
+#### Dependencies
+
+- `read_inputs.R` for reading in `ACOT_payments`.
+- `calculate_mean_demand.R` for `demand_mean_forecast`.
+
+## calculate_cap.R
+
+Calculate the capped proposal for each customer. The process is as follows:
+
+1. Calculate the cap for distributors (`distributor_capping`) by combining distributor charges (`distributor_charges`) with forecast mean demand (`demand_mean_forecast`), the calculated proposal (from `indicative_charges`) and the total "current" (HVDC+Interconnection) charge.
+2. Calculate the cap for industrial customers (`industrial_capping`) by combining forecast mean demand (`demand_mean_forecast`) with the calculated proposal (from `indicative_charges`), the adjusted connection charge (from `connection_charge_adj`) and the total "current" (HVDC+Interconnection) charge.
+3. Create the final capping dataset (`capping_final`) by combining each customer (`customer_type`) with mean demand forecast (`demand_mean_forecast`), mean net generation forecast (`generation_mean_net_forecast`), the final benefit charges (`benefit_charges_final`), the final residual charges (`residual_final`), the calculated proposal (from `indicative_charges`), the total "current" (HVDC+Interconnection) charge and the total bills from both `distributor_capping` and `industrial_capping`.
+4. The total bill is used to calculate the cap on increase for each customer (i.e. `total_bill * 0.035`).
+
+*Note: generators don't have a cap.*
+
+#### Dependencies
+
+- `indicative_charges` for the calculated proposal.
+- `current_charges.R` for the total "current" (HVDC+Interconnection) charge and adjusted charges (`connection_charge_adj`).
+- `calculate_residual_options.R` for `residual_final`.
+- `calculate_vSPD_benefits.R` for `benefit_charges_final`.
+
+## residential_impacts.R
+
+Calculate the impact of the capped proposal on residential customers. Uses the residential energy use input (`residential_energy_use`), adjusted charges (`adjusted_charges`), capped proposal (`capping_final`) and forecast mean demand (`demand_mean_forecast`) to calculate status quo and proposed TPM impact on residential bill (both in dollars and dollars/MWh). Also, attaches ACOT impact ($/MWh) to calculate ACOT impact on residential bill.
+
+#### Dependencies
+
+- `capping_final` for the capped proposal.
+- `current_charges.R` for the adjusted charges.
+- `calculate_mean_demand.R` for `demand_mean_forecast`.
+- `calculate_ACOT_payments.R` for ACOT impact.
+
+## comparisons.R
+
+This script uses the `testthat` library to validate that intermediate and final tables match those released as part of the consultation (within a tolerance of 0.01%). The following tables are compared:
+
+- Forecast revenue
+- Adjusted charges (2022 revenue)
+- Mean demand by POC and network
+- Mean demand by customer
+- Mean generation by POC and network
+- Mean generation (less net gen) by customer
+- Forecast demand (2021-22) by customer
+- Forecast (net) generation (2021-22) by customer
+- Residual AMD and MWh allocation
+- Nga Wha adjustment
+- Multi customer adjustment
+- Net vSPD (mean)
+- Benefit charges
+- Indicative charges: proposal
+- ACOT impacts
+- Capped proposal (final)
+- Residential impacts
+
+The following table shows the sources for the 'released' comparison files:
+
+```{r comparison_src}
+
+read_csv("../compare/comparison_file_sources.csv") %>% 
+  kable(col.names = c(
+      "File name", 
+      "Workbook",
+      "Sheet",
+      "Cell ranges"
+      ),
+      format = "html") %>%
+    kable_styling(font_size = 11, bootstrap_options = "striped") %>%
+    scroll_box(width = "100%", height = "400px")
+
+```
+
+## comparisons_adj.R
+This script is the same as `comparisons.R` although it compares against a different set of 'final' tables (i.e. based on the results of the adjusted Excel-based model). See the **Comparisons** section below for more information.
+
+# Results
+
+Final versions of the capping (`capping_final.csv`), indicative charges (`indicative_charges.csv`) and residential impacts (`residential_impacts.csv`) datasets are output to the `results` folder after each run. An Rmarkdown script can then be run to generate a results HTML. *Note: results are currently overwritten after each new run.*
+
+# Comparisons
+
+## Adjusted model (March 2020)
+
+Versions of the calculated datasets that come from the updated Excel-based model can be found in the `compare/adjusted` folder. These are used by the `rprogs/comparisons_adj.R` script to validate intermediate and final results. 
+
+<div class="alert alert-success">
+  All compared datasets are equal within a mean relative difference tolerance of <strong>0.01%</strong>.
+</div>
+
+The `rprogs/comparisons_adj.R` script compares the results when all adjustment switches are **turned on** - see `rprogs/model_adjustments_March2020.R`.
+
+## Initial model
+
+Released versions of calculated datasets (for the consultation paper) can be found in the `compare` folder. These are used by the `rprogs/comparisons.R` script to validate intermediate and final results. The released versions are largely sourced from the `2019 Proposal impacts modelling.xlsx` spreadsheet.
+
+<div class="alert alert-success">
+  All compared datasets are equal within a mean relative difference tolerance of <strong>0.01%</strong>.
+</div>
+
+The `rprogs/comparisons.R` script compares the results when all adjustment switches are **turned off** (i.e. the results for the consultation paper). 
+
+# Caveats/notes
+
+- manual overrides to align with released figures in `calculate_vSPD benefits` when calculating multi customer allocation.
+  - Assign The Lines Company as receiving 100% of generation benefit at TKU0331.
+  - Assign Southern Generation as receiving 100% of generation benefit at MAT1101.
+  - Assign Network Waitaki as receiving 38% of load benefit at TWZ0331 (instead of 37%. i.e. rounding up to equal 100% with other two customers).
+- the GR010 demand CSVs are compressed as zip files. The function that reads the files in uncompresses them on the fly and then reads the CSV.
+- Not all POC/Network combinations appear in the 010 files so the missing records are appended with 0 demand/generation.
+- there are slight differences in the summarised GR010 demand files compared with what was used in the released impact model (this is due to the treatment of trading periods 49 and 50).
+- `renv` is used for package management (users will need to run `renv::restore()` when the project is first cloned).
+- the `main.R` script takes approximately 2 minutes to run in full.

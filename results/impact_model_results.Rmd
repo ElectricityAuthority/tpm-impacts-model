@@ -1,0 +1,127 @@
+---
+title: "TPM impact model results"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: yes
+    self_contained: yes
+    highlight: haddock
+    fig_caption: true
+    css: ../resources/css/styles.css
+---
+
+```{r setup, echo=FALSE, message=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = TRUE, message=FALSE)
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+library(scales)
+```
+
+```{r, functions}
+
+indicative_charges_res <- read_csv("indicative_charges.csv")
+capping_final_res <- read_csv("capping_final.csv")
+residential_impacts_res <- read_csv("residential_impacts.csv")
+
+indicative_charges_table <- function(){
+  
+  indicative_charges_res %>%
+    arrange(type, transpower_customer) %>%
+    inner_join(
+      capping_final_res %>% 
+        select(
+          transpower_customer, capped_proposal),
+      by = c("transpower_customer")
+    ) %>%
+    select(
+      transpower_customer, charge_dollars_adjusted,
+      total_benefit, residual_charge, proposal, capped_proposal) %>% 
+    mutate_if(is.numeric, dollar) %>%
+    kable(col.names = c(
+      "Customer", "Connection charge",
+      "Benefit charge", "Residual charge", "Proposal",
+      "Capped proposal"),
+      format = "html") %>%
+    kable_styling(font_size = 11, bootstrap_options = "striped") %>%
+    pack_rows("Distributor", 1, 30) %>%
+    pack_rows("Generator", 31, 44) %>%
+    pack_rows("Industrial", 45, 56) %>%
+    scroll_box(width = "100%", height = "400px")
+  
+}
+
+capping_results_table <- function(){
+  
+  capping_final_res %>%
+    arrange(type, transpower_customer) %>%
+    select(
+      transpower_customer, total_bill, current_charges_total,
+      cap_on_increase, increase, cap_breach, proposal, capped_proposal,
+      cap_proposal_diff) %>% 
+    mutate_if(is.numeric, dollar) %>% 
+    kable(col.names = c(
+      "Customer", "Total bill",
+      "Current charges", "Cap on increase",
+      "Increase", "Cap breach", "Proposal", "Capped proposal", "Difference"),
+      format = "html") %>%
+    kable_styling(font_size = 11, bootstrap_options = "striped") %>%
+    pack_rows("Distributor", 1, 30) %>%
+    pack_rows("Generator", 31, 44) %>%
+    pack_rows("Industrial", 45, 56) %>%
+    scroll_box(width = "100%", height = "400px")
+  
+}
+
+residential_impacts_table <- function(){
+  
+  residential_impacts_res %>%
+    select(
+      transpower_customer, current_charge_dollarsperMWh, capped_proposal_dollarsperMWh, 
+      current_impact, proposed_impact, impact_diff, total_impact_no_ACOT) %>% 
+    mutate_if(is.numeric, dollar) %>% 
+    kable(col.names = c(
+      "Customer", "Current charge (\\$/MWh)",
+      "Capped proposal (\\$/MWh)", "Current impact (\\$/pa)",
+      "Proposed impact (\\$/pa)", "Difference", "Difference (no ACOT)"),
+      format = "html", escape = TRUE) %>%
+    kable_styling(font_size = 11, bootstrap_options = "striped") %>%
+    scroll_box(width = "100%", height = "400px")
+  
+}
+
+```
+
+<img src="../resources/img/logo.png" style="position:absolute; top:20px; right:0; width:25%;padding-right: 40px;" />
+
+# Background
+
+The following are the results from the TPM impact model. The final charges are a result of a **netted vSPD** approach for the **benefit charges** and the use of the **anytime maximum demand (AMD)** to allocate **residual charges**. The proposal also includes a **price cap** to protect customers from big price increases
+
+Results are broken down in to **indicative charges**, **capping results**, and **residential impacts**.
+
+# Indicative charges
+
+```{r indicative_charges}
+
+indicative_charges_table()
+
+```
+
+# Capping results
+
+```{r capping_results}
+
+capping_results_table()
+
+```
+
+# Residential impacts
+
+```{r resid_impacts}
+
+residential_impacts_table()
+
+```

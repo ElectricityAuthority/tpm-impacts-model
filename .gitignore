@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+inputs/demand/*.csv
+investigations
+inputs/mapping/old*
+rprogs/dev/*

@@ -1,0 +1,331 @@
+node_benefit_investment,transpower_customer,generation_benefit,demand_benefit
+BPE_HAY_TPM,Alpine Energy,0,967066.4898
+BPE_HAY_TPM,Aurora Energy,0,1773421.649
+BPE_HAY_TPM,B.E.R. (Kupe) Ltd,0,9540.76
+BPE_HAY_TPM,Buller Electricity,0,82956.87325
+BPE_HAY_TPM,Centralines,0,20955.30875
+BPE_HAY_TPM,Contact Energy,647543.0318,6802.682795
+BPE_HAY_TPM,Counties Power,0,98413.19085
+BPE_HAY_TPM,Daiken Southland,0,85755.02339
+BPE_HAY_TPM,Eastland Network,0,53431.18175
+BPE_HAY_TPM,Electra,0,838272.991
+BPE_HAY_TPM,Electricity Ashburton,0,528833.5466
+BPE_HAY_TPM,Electricity Invercargill,0,703634.6857
+BPE_HAY_TPM,Electricity Southland,0,36979.49094
+BPE_HAY_TPM,Genesis Power,378187.4478,182.859975
+BPE_HAY_TPM,Horizon Energy,0,95094.23749
+BPE_HAY_TPM,MainPower,0.8295,997090.5165
+BPE_HAY_TPM,Marlborough Lines,0,632270.7758
+BPE_HAY_TPM,Mercury,191909.6035,0
+BPE_HAY_TPM,Meridian,51532.50025,21117.81494
+BPE_HAY_TPM,Methanex,0,8810.5255
+BPE_HAY_TPM,Nelson Electricity,0,87265.38616
+BPE_HAY_TPM,Network Tasman,0,949505.3408
+BPE_HAY_TPM,Network Waitaki,0,351366.2271
+BPE_HAY_TPM,New Zealand Rail,19.237,10867.293
+BPE_HAY_TPM,Nga Awa Purua JV,463.38725,49.89075
+BPE_HAY_TPM,Ngatamariki Geothermal,3635.0645,3.992
+BPE_HAY_TPM,Norske Skog,0,0
+BPE_HAY_TPM,Northpower,0,207836.946
+BPE_HAY_TPM,Nova,29605.11925,12.409
+BPE_HAY_TPM,NZ Steel,0,94148.42516
+BPE_HAY_TPM,NZAS,0,6848702.458
+BPE_HAY_TPM,Orion,0,5663415.09
+BPE_HAY_TPM,OtagoNet JV,0,452832.9319
+BPE_HAY_TPM,Pan Pacific,0,107793.442
+BPE_HAY_TPM,Port Taranaki,0,147.669685
+BPE_HAY_TPM,Powerco,0.236,1249724.552
+BPE_HAY_TPM,Resolution Dev,0,866.2123575
+BPE_HAY_TPM,Scanpower,0,14119.57425
+BPE_HAY_TPM,Southdown Generation,0,416.04775
+BPE_HAY_TPM,Southern Generation,0,27992.10601
+BPE_HAY_TPM,The Lines Company,0,49220.96721
+BPE_HAY_TPM,The Power Company,0,478083.0666
+BPE_HAY_TPM,Tilt Renewables,81355.9255,153.019
+BPE_HAY_TPM,Todd Gen. Taranaki,75747.81075,263.82325
+BPE_HAY_TPM,Top Energy,0,0
+BPE_HAY_TPM,TrustPower,2155.35975,1048.713238
+BPE_HAY_TPM,Tuaropaki Power,16083.785,10232.64825
+BPE_HAY_TPM,Unison Networks,0,196973.5576
+BPE_HAY_TPM,Vector,0,1711810.251
+BPE_HAY_TPM,Waipa Networks,0,78061.7565
+BPE_HAY_TPM,WEL Networks,0,160881.2569
+BPE_HAY_TPM,Wellington Electricity,0,3677050.282
+BPE_HAY_TPM,Westpower,23.198,124809.3072
+BPE_HAY_TPM,Whareroa Cogen. Ltd,32424.82425,157.2755
+BPE_HAY_TPM,Winstone Pulp Int,0,51320.618
+HVDC_no_reserve_FlexiNZD,Alpine Energy,0,7700646.759
+HVDC_no_reserve_FlexiNZD,Aurora Energy,0,14173630.22
+HVDC_no_reserve_FlexiNZD,B.E.R. (Kupe) Ltd,0,666107.518
+HVDC_no_reserve_FlexiNZD,Buller Electricity,5.08675,680938.7138
+HVDC_no_reserve_FlexiNZD,Centralines,0,1883025.649
+HVDC_no_reserve_FlexiNZD,Contact Energy,113142261.9,192860.1608
+HVDC_no_reserve_FlexiNZD,Counties Power,0,9557807.705
+HVDC_no_reserve_FlexiNZD,Daiken Southland,0,804439.2908
+HVDC_no_reserve_FlexiNZD,Eastland Network,0,3134088.297
+HVDC_no_reserve_FlexiNZD,Electra,0,7136309.246
+HVDC_no_reserve_FlexiNZD,Electricity Ashburton,0,4593856.239
+HVDC_no_reserve_FlexiNZD,Electricity Invercargill,0,5329748.531
+HVDC_no_reserve_FlexiNZD,Electricity Southland,0,316612.0111
+HVDC_no_reserve_FlexiNZD,Genesis Power,29143471.74,11875.08496
+HVDC_no_reserve_FlexiNZD,Horizon Energy,0,3290133.377
+HVDC_no_reserve_FlexiNZD,MainPower,1069.8005,7915508.814
+HVDC_no_reserve_FlexiNZD,Marlborough Lines,0,4086543.265
+HVDC_no_reserve_FlexiNZD,Mercury,0,0
+HVDC_no_reserve_FlexiNZD,Meridian,304136556.4,223889.8186
+HVDC_no_reserve_FlexiNZD,Methanex,0,569344.784
+HVDC_no_reserve_FlexiNZD,Nelson Electricity,0,584680.6388
+HVDC_no_reserve_FlexiNZD,Network Tasman,0,6388131.454
+HVDC_no_reserve_FlexiNZD,Network Waitaki,0,3221811.563
+HVDC_no_reserve_FlexiNZD,New Zealand Rail,38.074,621958.387
+HVDC_no_reserve_FlexiNZD,Nga Awa Purua JV,0,1503.40025
+HVDC_no_reserve_FlexiNZD,Ngatamariki Geothermal,0,99.3205
+HVDC_no_reserve_FlexiNZD,Norske Skog,0,0
+HVDC_no_reserve_FlexiNZD,Northpower,0,10217968.48
+HVDC_no_reserve_FlexiNZD,Nova,39356.68925,619.22625
+HVDC_no_reserve_FlexiNZD,NZ Steel,0,4551408.458
+HVDC_no_reserve_FlexiNZD,NZAS,0,65484686.42
+HVDC_no_reserve_FlexiNZD,Orion,0.10475,44103269.9
+HVDC_no_reserve_FlexiNZD,OtagoNet JV,0,3682018.303
+HVDC_no_reserve_FlexiNZD,Pan Pacific,0,4206466.328
+HVDC_no_reserve_FlexiNZD,Port Taranaki,0,11932.04741
+HVDC_no_reserve_FlexiNZD,Powerco,2314.277,56446516.1
+HVDC_no_reserve_FlexiNZD,Resolution Dev,0,8125.649403
+HVDC_no_reserve_FlexiNZD,Scanpower,0,1382570.284
+HVDC_no_reserve_FlexiNZD,Southdown Generation,0,13326.75575
+HVDC_no_reserve_FlexiNZD,Southern Generation,0,105629.1229
+HVDC_no_reserve_FlexiNZD,The Lines Company,26.798,3227769.586
+HVDC_no_reserve_FlexiNZD,The Power Company,0,3096123.952
+HVDC_no_reserve_FlexiNZD,Tilt Renewables,50684.45025,4945.1105
+HVDC_no_reserve_FlexiNZD,Todd Gen. Taranaki,804607.4815,14121.54
+HVDC_no_reserve_FlexiNZD,Top Energy,0,2157918.044
+HVDC_no_reserve_FlexiNZD,TrustPower,6734958.166,6120.15209
+HVDC_no_reserve_FlexiNZD,Tuaropaki Power,0,497901.0165
+HVDC_no_reserve_FlexiNZD,Unison Networks,0,12058280.17
+HVDC_no_reserve_FlexiNZD,Vector,0,97151978.8
+HVDC_no_reserve_FlexiNZD,Waipa Networks,0,5346107.49
+HVDC_no_reserve_FlexiNZD,WEL Networks,0,10167865.25
+HVDC_no_reserve_FlexiNZD,Wellington Electricity,0,38282579.57
+HVDC_no_reserve_FlexiNZD,Westpower,50936.472,736100.1065
+HVDC_no_reserve_FlexiNZD,Whareroa Cogen. Ltd,234881.7553,3631.5595
+HVDC_no_reserve_FlexiNZD,Winstone Pulp Int,0,2644203.638
+LSI_reliability_TPM,Alpine Energy,0,120158.5263
+LSI_reliability_TPM,Aurora Energy,0,72465.06691
+LSI_reliability_TPM,B.E.R. (Kupe) Ltd,0,8348.67425
+LSI_reliability_TPM,Buller Electricity,0,9764.0755
+LSI_reliability_TPM,Centralines,0,19197.9315
+LSI_reliability_TPM,Contact Energy,1928530.764,1233.439703
+LSI_reliability_TPM,Counties Power,0,86882.42644
+LSI_reliability_TPM,Daiken Southland,0,111336.6219
+LSI_reliability_TPM,Eastland Network,0,45334.42375
+LSI_reliability_TPM,Electra,0,76537.60875
+LSI_reliability_TPM,Electricity Ashburton,0,61163.42506
+LSI_reliability_TPM,Electricity Invercargill,0,21773.8755
+LSI_reliability_TPM,Electricity Southland,0,3644.975862
+LSI_reliability_TPM,Genesis Power,0,161.5246725
+LSI_reliability_TPM,Horizon Energy,0,47704.21696
+LSI_reliability_TPM,MainPower,0.03725,102848.2817
+LSI_reliability_TPM,Marlborough Lines,0,69735.163
+LSI_reliability_TPM,Mercury,0,0
+LSI_reliability_TPM,Meridian,87268.5805,1308.68565
+LSI_reliability_TPM,Methanex,0,7383.30125
+LSI_reliability_TPM,Nelson Electricity,0,9740.59844
+LSI_reliability_TPM,Network Tasman,0,114347.9706
+LSI_reliability_TPM,Network Waitaki,0,42081.8079
+LSI_reliability_TPM,New Zealand Rail,0.001,8436.60725
+LSI_reliability_TPM,Nga Awa Purua JV,0,21.02075
+LSI_reliability_TPM,Ngatamariki Geothermal,0,2.6675
+LSI_reliability_TPM,Norske Skog,0,0
+LSI_reliability_TPM,Northpower,0,173801.5523
+LSI_reliability_TPM,Nova,0,18.0075
+LSI_reliability_TPM,NZ Steel,0,77322.01194
+LSI_reliability_TPM,NZAS,0,170845.6005
+LSI_reliability_TPM,Orion,0,576153.3443
+LSI_reliability_TPM,OtagoNet JV,0,161755.4103
+LSI_reliability_TPM,Pan Pacific,0,61487.195
+LSI_reliability_TPM,Port Taranaki,0,143.85021
+LSI_reliability_TPM,Powerco,1.2,688267.3967
+LSI_reliability_TPM,Resolution Dev,0,1124.612343
+LSI_reliability_TPM,Scanpower,0,13739.25325
+LSI_reliability_TPM,Southdown Generation,0,322.94025
+LSI_reliability_TPM,Southern Generation,0,1501.987285
+LSI_reliability_TPM,The Lines Company,0,37644.55051
+LSI_reliability_TPM,The Power Company,0,661211.0802
+LSI_reliability_TPM,Tilt Renewables,0,64.0845
+LSI_reliability_TPM,Todd Gen. Taranaki,0,118.5665
+LSI_reliability_TPM,Top Energy,0,0
+LSI_reliability_TPM,TrustPower,0,57.074215
+LSI_reliability_TPM,Tuaropaki Power,0,6762.77625
+LSI_reliability_TPM,Unison Networks,0,176417.2679
+LSI_reliability_TPM,Vector,0.1465,1525117.252
+LSI_reliability_TPM,Waipa Networks,0,65276.886
+LSI_reliability_TPM,WEL Networks,0,145758.871
+LSI_reliability_TPM,Wellington Electricity,0,394128.5164
+LSI_reliability_TPM,Westpower,5.46125,16609.0831
+LSI_reliability_TPM,Whareroa Cogen. Ltd,0,44.08275
+LSI_reliability_TPM,Winstone Pulp Int,0,34381.28375
+LSI_renewables_TPM,Alpine Energy,0,592364.8351
+LSI_renewables_TPM,Aurora Energy,0,890416.7133
+LSI_renewables_TPM,B.E.R. (Kupe) Ltd,0,16769.9965
+LSI_renewables_TPM,Buller Electricity,0.001,40290.65425
+LSI_renewables_TPM,Centralines,0,34212.736
+LSI_renewables_TPM,Contact Energy,15461.66025,2825.590825
+LSI_renewables_TPM,Counties Power,0,168165.8293
+LSI_renewables_TPM,Daiken Southland,0,55911.27663
+LSI_renewables_TPM,Eastland Network,0,81324.38475
+LSI_renewables_TPM,Electra,0,133133.3048
+LSI_renewables_TPM,Electricity Ashburton,0,339326.4073
+LSI_renewables_TPM,Electricity Invercargill,0,434918.2307
+LSI_renewables_TPM,Electricity Southland,0,13168.59745
+LSI_renewables_TPM,Genesis Power,5135.5225,335.1021525
+LSI_renewables_TPM,Horizon Energy,0,131581.8461
+LSI_renewables_TPM,MainPower,0,586115.2595
+LSI_renewables_TPM,Marlborough Lines,0,372299.4468
+LSI_renewables_TPM,Mercury,0,0
+LSI_renewables_TPM,Meridian,3.9195,9637.976495
+LSI_renewables_TPM,Methanex,0,13446.46025
+LSI_renewables_TPM,Nelson Electricity,0,45913.45398
+LSI_renewables_TPM,Network Tasman,0,511156.2355
+LSI_renewables_TPM,Network Waitaki,0,429520.6275
+LSI_renewables_TPM,New Zealand Rail,0.14225,15376.58925
+LSI_renewables_TPM,Nga Awa Purua JV,0,41.5425
+LSI_renewables_TPM,Ngatamariki Geothermal,0,0.98575
+LSI_renewables_TPM,Norske Skog,0,0
+LSI_renewables_TPM,Northpower,0,354093.8638
+LSI_renewables_TPM,Nova,0,5.7855
+LSI_renewables_TPM,NZ Steel,0,168321.6208
+LSI_renewables_TPM,NZAS,0,4691460.378
+LSI_renewables_TPM,Orion,0,2921238.862
+LSI_renewables_TPM,OtagoNet JV,0,403184.4827
+LSI_renewables_TPM,Pan Pacific,0,137542.578
+LSI_renewables_TPM,Port Taranaki,0,255.6059575
+LSI_renewables_TPM,Powerco,0.00025,1331871.599
+LSI_renewables_TPM,Resolution Dev,0,564.76037
+LSI_renewables_TPM,Scanpower,0,23903.66175
+LSI_renewables_TPM,Southdown Generation,1252.81125,364.1205
+LSI_renewables_TPM,Southern Generation,0.0005,31859.47395
+LSI_renewables_TPM,The Lines Company,0.045,73907.38455
+LSI_renewables_TPM,The Power Company,0,406236.2205
+LSI_renewables_TPM,Tilt Renewables,0,147.6005
+LSI_renewables_TPM,Todd Gen. Taranaki,2351.0745,167.51875
+LSI_renewables_TPM,Top Energy,0,0
+LSI_renewables_TPM,TrustPower,31.154,1045.937555
+LSI_renewables_TPM,Tuaropaki Power,0,13803.615
+LSI_renewables_TPM,Unison Networks,0,317687.3067
+LSI_renewables_TPM,Vector,0.00075,2858093.319
+LSI_renewables_TPM,Waipa Networks,0,127065.5255
+LSI_renewables_TPM,WEL Networks,0,279517.678
+LSI_renewables_TPM,Wellington Electricity,0,638426.42
+LSI_renewables_TPM,Westpower,0.00025,91125.41276
+LSI_renewables_TPM,Whareroa Cogen. Ltd,0,210.63225
+LSI_renewables_TPM,Winstone Pulp Int,0,70870.138
+NIGUP_Flexi_NZDperMWh,Alpine Energy,0,411454.0921
+NIGUP_Flexi_NZDperMWh,Aurora Energy,0,411225.4254
+NIGUP_Flexi_NZDperMWh,B.E.R. (Kupe) Ltd,0,41065.06375
+NIGUP_Flexi_NZDperMWh,Buller Electricity,0.00975,45609.69275
+NIGUP_Flexi_NZDperMWh,Centralines,0,65235.5025
+NIGUP_Flexi_NZDperMWh,Contact Energy,8153157.071,28799.40143
+NIGUP_Flexi_NZDperMWh,Counties Power,0,3603421.263
+NIGUP_Flexi_NZDperMWh,Daiken Southland,0,23897.01823
+NIGUP_Flexi_NZDperMWh,Eastland Network,0,63860.24475
+NIGUP_Flexi_NZDperMWh,Electra,0,226260.4648
+NIGUP_Flexi_NZDperMWh,Electricity Ashburton,0,354884.1503
+NIGUP_Flexi_NZDperMWh,Electricity Invercargill,0,189013.1742
+NIGUP_Flexi_NZDperMWh,Electricity Southland,0,7002.683905
+NIGUP_Flexi_NZDperMWh,Genesis Power,5028738.899,305.5528875
+NIGUP_Flexi_NZDperMWh,Horizon Energy,0,69043.89909
+NIGUP_Flexi_NZDperMWh,MainPower,6.01575,331216.8055
+NIGUP_Flexi_NZDperMWh,Marlborough Lines,0,201546.973
+NIGUP_Flexi_NZDperMWh,Mercury,8425931.989,0
+NIGUP_Flexi_NZDperMWh,Meridian,10083048.5,6672.8353
+NIGUP_Flexi_NZDperMWh,Methanex,0,37121.14175
+NIGUP_Flexi_NZDperMWh,Nelson Electricity,0,23741.13338
+NIGUP_Flexi_NZDperMWh,Network Tasman,0,296693.8338
+NIGUP_Flexi_NZDperMWh,Network Waitaki,0,180519.1998
+NIGUP_Flexi_NZDperMWh,New Zealand Rail,79.5185,280058.5433
+NIGUP_Flexi_NZDperMWh,Nga Awa Purua JV,1337742.149,56.78575
+NIGUP_Flexi_NZDperMWh,Ngatamariki Geothermal,807684.6763,5.102
+NIGUP_Flexi_NZDperMWh,Norske Skog,244927.8648,0
+NIGUP_Flexi_NZDperMWh,Northpower,0,8214030.948
+NIGUP_Flexi_NZDperMWh,Nova,283548.4638,10.09825
+NIGUP_Flexi_NZDperMWh,NZ Steel,0,3386405.454
+NIGUP_Flexi_NZDperMWh,NZAS,0,2204017.292
+NIGUP_Flexi_NZDperMWh,Orion,0.00125,1572677.224
+NIGUP_Flexi_NZDperMWh,OtagoNet JV,0,156219.1068
+NIGUP_Flexi_NZDperMWh,Pan Pacific,0,136792.551
+NIGUP_Flexi_NZDperMWh,Port Taranaki,0,609.895395
+NIGUP_Flexi_NZDperMWh,Powerco,0.117,2622561.776
+NIGUP_Flexi_NZDperMWh,Resolution Dev,0,241.3840225
+NIGUP_Flexi_NZDperMWh,Scanpower,0,47274.295
+NIGUP_Flexi_NZDperMWh,Southdown Generation,0,9348.9345
+NIGUP_Flexi_NZDperMWh,Southern Generation,88923.20325,3105.60923
+NIGUP_Flexi_NZDperMWh,The Lines Company,85.58225,248520.3129
+NIGUP_Flexi_NZDperMWh,The Power Company,0,176404.2761
+NIGUP_Flexi_NZDperMWh,Tilt Renewables,221984.7388,256.4315
+NIGUP_Flexi_NZDperMWh,Todd Gen. Taranaki,355907.4573,601.57
+NIGUP_Flexi_NZDperMWh,Top Energy,0,1493752.147
+NIGUP_Flexi_NZDperMWh,TrustPower,220721.769,191.57602
+NIGUP_Flexi_NZDperMWh,Tuaropaki Power,921829.872,12908.25425
+NIGUP_Flexi_NZDperMWh,Unison Networks,0,217507.2075
+NIGUP_Flexi_NZDperMWh,Vector,9.114,70383890.57
+NIGUP_Flexi_NZDperMWh,Waipa Networks,0,454121.234
+NIGUP_Flexi_NZDperMWh,WEL Networks,0,1554019.169
+NIGUP_Flexi_NZDperMWh,Wellington Electricity,0,1139117.878
+NIGUP_Flexi_NZDperMWh,Westpower,786.72375,72170.34784
+NIGUP_Flexi_NZDperMWh, Whareroa Cogen. Ltd ,24381.55275,693.14325
+NIGUP_Flexi_NZDperMWh, Winstone Pulp Int ,0,99406.57875
+WRK_Flexi_NZDperMWh,Alpine Energy,0,537410.0657
+WRK_Flexi_NZDperMWh,Aurora Energy,0,599739.3951
+WRK_Flexi_NZDperMWh,B.E.R. (Kupe) Ltd,0,95239.34475
+WRK_Flexi_NZDperMWh,Buller Electricity,0.0105,40446.67925
+WRK_Flexi_NZDperMWh,Centralines,0,27660.17975
+WRK_Flexi_NZDperMWh,Contact Energy,46938639.64,26631.15551
+WRK_Flexi_NZDperMWh,Counties Power,0,3110815.902
+WRK_Flexi_NZDperMWh,Daiken Southland,0,41043.16433
+WRK_Flexi_NZDperMWh,Eastland Network,5.798,0
+WRK_Flexi_NZDperMWh,Electra,0,319881.1433
+WRK_Flexi_NZDperMWh,Electricity Ashburton,0,324813.5604
+WRK_Flexi_NZDperMWh,Electricity Invercargill,0,273912.2255
+WRK_Flexi_NZDperMWh,Electricity Southland,0,11630.87023
+WRK_Flexi_NZDperMWh,Genesis Power,16871156.52,4948.797563
+WRK_Flexi_NZDperMWh,Horizon Energy,0,0
+WRK_Flexi_NZDperMWh,MainPower,0,431590.3275
+WRK_Flexi_NZDperMWh,Marlborough Lines,0,275530.5543
+WRK_Flexi_NZDperMWh,Mercury,23272180.03,0
+WRK_Flexi_NZDperMWh,Meridian,0,10317.56558
+WRK_Flexi_NZDperMWh,Methanex,0,90688.552
+WRK_Flexi_NZDperMWh,Nelson Electricity,0,34098.60802
+WRK_Flexi_NZDperMWh,Network Tasman,0,393301.2155
+WRK_Flexi_NZDperMWh,Network Waitaki,0,185984.273
+WRK_Flexi_NZDperMWh,New Zealand Rail,534.7925,258333.689
+WRK_Flexi_NZDperMWh,Nga Awa Purua JV,17685238.18,0
+WRK_Flexi_NZDperMWh,Ngatamariki Geothermal,10740658.77,0.8195
+WRK_Flexi_NZDperMWh,Norske Skog,5454507.117,0
+WRK_Flexi_NZDperMWh,Northpower,0,6406516.519
+WRK_Flexi_NZDperMWh,Nova,0,88.55425
+WRK_Flexi_NZDperMWh,NZ Steel,0,2942489.581
+WRK_Flexi_NZDperMWh,NZAS,0,3551493.26
+WRK_Flexi_NZDperMWh,Orion,0.0005,2198985.074
+WRK_Flexi_NZDperMWh,OtagoNet JV,0,233579.0888
+WRK_Flexi_NZDperMWh,Pan Pacific,0,0
+WRK_Flexi_NZDperMWh,Port Taranaki,0,1689.336618
+WRK_Flexi_NZDperMWh,Powerco,1.272,7915251.669
+WRK_Flexi_NZDperMWh,Resolution Dev,0,414.5774175
+WRK_Flexi_NZDperMWh,Scanpower,0,67286.4525
+WRK_Flexi_NZDperMWh,Southdown Generation,0,7641.63525
+WRK_Flexi_NZDperMWh,Southern Generation,1417376.264,0
+WRK_Flexi_NZDperMWh,The Lines Company,0.00425,1077180.353
+WRK_Flexi_NZDperMWh,The Power Company,0,259187.1704
+WRK_Flexi_NZDperMWh,Tilt Renewables,0,418.039
+WRK_Flexi_NZDperMWh,Todd Gen. Taranaki,0,1463.9445
+WRK_Flexi_NZDperMWh,Top Energy,0,1132037.906
+WRK_Flexi_NZDperMWh,TrustPower,2524341.928,91.102
+WRK_Flexi_NZDperMWh,Tuaropaki Power,0,276803.531
+WRK_Flexi_NZDperMWh,Unison Networks,0,0.66625
+WRK_Flexi_NZDperMWh,Vector,0,53940859.96
+WRK_Flexi_NZDperMWh,Waipa Networks,0,2239083.055
+WRK_Flexi_NZDperMWh,WEL Networks,0,5220039.448
+WRK_Flexi_NZDperMWh,Wellington Electricity,0,1438834.524
+WRK_Flexi_NZDperMWh,Westpower,0,75301.02929
+WRK_Flexi_NZDperMWh,Whareroa Cogen. Ltd,0,850.78825
+WRK_Flexi_NZDperMWh,Winstone Pulp Int,0,0

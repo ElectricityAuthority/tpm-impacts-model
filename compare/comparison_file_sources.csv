@@ -1,0 +1,18 @@
+filename,source_workbook,source_sheet,source_cell_ranges
+ACOT_impacts_released.csv,2019 Proposal impacts modelling.xlsx,Figure 16 17 18,I5:I35
+adjusted_charges_released.csv,2019 Proposal impacts modelling.xlsx,Current TP charges,G3:G59; I3:I59; J3:J59
+benefit_charges_released.csv,2019 Proposal impacts modelling.xlsx,vSPD results,H3:K59
+capped_proposal_released.csv,2019 Proposal impacts modelling.xlsx,Results,G3:G59 
+demand_mean_customer_released.csv,2019 Proposal impacts modelling.xlsx,Reconciliation maps 15042019,AP7:AP63
+demand_mean_forecast_customer_released.csv,2019 Proposal impacts modelling.xlsx,Reconciliation maps 15042019,AR7:AR63
+demand_mean_POC_released.csv,2019 Proposal impacts modelling.xlsx,Reconciliation maps 15042019,AH7:AH306
+generation_mean_forecast_net_customer_released.csv,2019 Proposal impacts modelling.xlsx,Reconciliation maps 15042019,AS7:AS63
+generation_mean_net_customer_released.csv,2019 Proposal impacts modelling.xlsx,Reconciliation maps 15042019,AQ7:AQ63
+generation_mean_POC_released.csv,2019 Proposal impacts modelling.xlsx,Reconciliation maps 15042019,AI7:AI306
+multi_customer_adjustment_released.csv,Trad.vSPD module.xlsx,Multiple customer adj't,M1:N1013
+nga_wha_adjustment_released.csv,Trad.vSPD module.xlsx,FINAL Adjusted Trad.vSPD,E10198:F10241
+proposal_released.csv,2019 Proposal impacts modelling.xlsx,Results,F3:F59 
+residential_impact_released.csv,2019 Proposal impacts modelling.xlsx,Figure 16 17 18,G5:I35;K5:K35
+residual_impact_released.csv,2019 Proposal impacts modelling.xlsx,Residual options,D3:E59
+total_revenue_released.csv,2019 Proposal impacts modelling.xlsx,Forecast TPM Revenue,B4:C11
+vSPD_net_mean_released.csv,2019 Proposal impacts modelling.xlsx,Net.vSPD results,A4:S60

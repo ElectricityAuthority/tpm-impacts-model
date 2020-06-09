@@ -1,0 +1,13 @@
+scenario_type,revenue_type,revenue_million
+proposed,HVDC and interconnection charge,0
+proposed,Loss and constraint excess revenue,55.3441004
+proposed,Benefit charge,174.4181684
+proposed,Connection charge,103.6271344
+proposed,Prudent discount and Notional embedding agreement charges,3.04215936
+proposed,Residual,462.3684374
+status quo,HVDC and interconnection charge,636.7866058
+status quo,Loss and constraint excess revenue,55.3441004
+status quo,Benefit charge,0
+status quo,Connection charge,103.6271344
+status quo,Prudent discount and Notional embedding agreement charges,3.04215936
+status quo,Residual,0

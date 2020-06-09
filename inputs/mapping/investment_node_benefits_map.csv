@@ -1,0 +1,9 @@
+investment,node_benefit_investment
+BPE-HAY reconductoring,BPE_HAY_TPM
+HVDC Pole 2 and 3,HVDC_no_reserve_FlexiNZD
+HVDC Pole 2 and 3,HVDC_with_reserve_FlexiNZD
+LSI Reliability,LSI_reliability_TPM
+Lower South Island renewables,LSI_renewables_TPM
+UNI dynamic reactive support,NIGUP_Flexi_NZDperMWh
+North Island Grid Upgrade,NIGUP_Flexi_NZDperMWh
+Wairakei Ring,WRK_Flexi_NZDperMWh

@@ -1,0 +1,275 @@
+#outlook a{
+padding:0;
+}
+.ExternalClass{
+  width:100%;
+}
+.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{
+  line-height:100%;
+}
+div.main-container{
+  max-width: 80%;
+}
+body,html{
+  -webkit-text-size-adjust:none;
+  -ms-text-size-adjust:none;
+  margin:0;
+  padding:0;
+  height: auto;
+}
+body{
+  background:#ffffff;
+  color:#414141;
+  font-family:Arial, sans-serif;
+  font-size:14px;
+}
+a{
+  text-decoration:none;
+  color:#567DC1;
+}
+a img{
+  border:none;
+  max-width: 200px;
+}
+img{
+  display:block;
+  page-break-inside:avoid;
+}
+p{
+  
+}
+p > img {
+  width: 80%;
+}
+h1{
+  color:#585858;
+  font-family:Arial, sans-serif;
+  font-size:30px;
+  line-height:34px;
+  font-weight:normal;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+h2{
+  font-size:26px;
+  line-height:34px;
+  font-family:Arial, sans-serif;
+  color:#567DC1;
+  font-weight:normal;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+h3{
+  font-size:22px;
+  font-weight:normal;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+h3.figure_heading a {
+  text-decoration:underline;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+ul{
+  padding-left:28px;
+  margin-top:10px;
+  padding-bottom:10px;
+}
+ol{ 
+  color:#414141;
+  padding-left:2px;
+  list-style-type: none;
+  counter-reset: foo;
+  display: table;
+}
+
+ol > li {
+  counter-increment: foo;
+  display: table-row;
+}
+
+ol > li::before {
+  content: counter(foo) ".";
+  display: table-cell; /* aha! */
+    text-align: right;
+}		
+.outer{
+  background:#ffffff;
+}
+.spacer{
+  font-size:1px !important;
+  line-height:1px !important;
+}
+.header_5{
+  font-size:1px !important;
+  line-height:1px !important;
+  width:5px !important;
+}
+.header .social a{
+  color:#b9b9b9;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  line-height:17px;
+}
+.content,.content p,.content li,.footer td{
+  font-size:14px;
+  line-height:22px;
+  font-family:Arial, sans-serif;
+  color:#414141;
+}
+.content a{
+  text-decoration:underline;
+  color:#567DC1;
+}
+.w560{
+  width:560px;
+}
+.w640{
+  width:640px;
+}
+.w275{
+  width:275px;
+}
+.border-bottom td{
+  border-bottom:4px #567DC1 solid;
+}
+.widget-intro h1{
+  font-size:48px;
+  color:#414141;
+}
+.widget-intro .widget-header td{
+  height:59px;
+}
+.widget-intro .widget-content p{
+  color:#585858;
+    font-family:Arial, sans-serif;
+  font-size:19px;
+  line-height:25px;
+}
+.widget-contents .widget-header h1,.widget-contents .widget-header .mc-toc-title{
+  font-size:30px;
+  line-height:33px;
+}
+.widget-contents .widget-content li{
+  line-height:21px;
+  padding-bottom:11px;
+}
+.date{
+  font-family:Arial, sans-serif;
+  font-size:18px;
+  line-height:45px;
+  color:#585858;
+}
+.footer .container td{
+  font-size:14px;
+  line-height:22px;
+}
+.footer a{
+  text-decoration:underline;
+  color:#567DC1;
+    font-size:14px;
+}
+.footer a span{
+  color:#585858;
+}
+.left-align{
+  float:left;
+  padding-right:30px;
+  padding-bottom:20px;
+}
+.right-align{
+  float:right;
+  padding-left:30px;
+  padding-bottom:20px;
+}
+.posts .widget{
+  border-bottom:5px #f2f2f2 solid;
+}
+.posts .widget-big-content{
+  border-right:5px #f2f2f2 solid;
+  border-left:5px #f2f2f2 solid;
+}
+.posts .widget-content p{
+  margin-bottom:15px;
+}
+.back span{
+  color:#585858;
+}	
+.title{
+  color: #414141;
+  font-size: 32px !important;
+  line-height: 50px;
+  margin: 0;
+  font-weight: normal;
+  padding-top: 20px;
+}
+#TOC{
+  margin: 30px 0 0 -1% !important;
+  max-width: 100%;
+  width: 15%;
+}
+hr {
+  border-bottom: 2px #567DC1 solid;
+}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+  background-color: #567DC1;
+  border-color: #567DC1;
+}
+.fas{
+  vertical-align: middle;
+  padding-right: 1%;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+  background-color: #567DC1;
+}
+
+.nav-pills>li>a{
+  border: 1px solid #567DC1;
+}
+
+#DataTables_Table_0 > thead > tr{
+  background-color: #567DC1;
+  color: white;
+}
+
+table > thead{
+  background-color: #567DC1 !important;
+  color: white;
+}
+
+table > thead > tr > th{
+  
+  background-color: #567DC1 !important;
+  color: white;
+}
+
+@media only screen and (max-width : 768px) {
+#TOC{
+  margin: 15px 0 0 0 !important;
+}
+}
+
+@media only screen and (max-width : 995px) {
+#TOC{
+  margin: 15px 0 0 0 !important;
+  width: 30%;
+}
+}
+
+@media only screen and (max-width : 1200px) {
+#TOC{
+  margin: 15px 0 0 0 !important;
+  width: 20%%;
+}
+}
+ 
+@media only screen and (min-width : 1930px) {
+#TOC{
+  margin: 15px 0 0 -10% !important;
+}
+}
